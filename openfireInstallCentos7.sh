@@ -40,7 +40,7 @@ y
 y
 EOF
 
-mysql -u root -p$passworddb -e CREATE DATABASE openfire;
-mysql -u root -p$passworddb -e GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' IDENTIFIED BY '1';
-zcat /opt/openfire/resources/database/openfire_mysql.sql| mysql -u user -p$passworddb openfire
+mysql -u root -p$passworddb -e "CREATE DATABASE openfire";
+mysql -u root -p$passworddb -e "GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' IDENTIFIED BY '1'";
+cat /opt/openfire/resources/database/openfire_mysql.sql| mysql -u user -p$passworddb openfire
 echo "Finish!"
