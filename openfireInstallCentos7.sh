@@ -6,10 +6,6 @@ echo "Install OPENFIRE"
 echo "Enter new password database:"
 read passworddb
 
-sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/CentOS*
-sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/CentOS*
-sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/CentOS*
-
 firewall-cmd --permanent --add-port=3306/tcp --add-port=5222/tcp --add-port={9090,9091}/{udp,tcp}
 firewall-cmd --reload
 setenforce 0
